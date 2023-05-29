@@ -5,8 +5,11 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.figure_factory as ff
+import pickle
 
-df = pd.read_csv('athlete_events.csv')
+# Load the pickle file
+with open('df.pkl', 'rb') as f:
+    df = pickle.load('df.pkl')
 region_df = pd.read_csv('noc_regions.csv')
 
 df = preprocessor.preprocess(df,region_df)
